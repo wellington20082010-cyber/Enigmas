@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styleNiveis.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Níveis</title>
+</head>
+
+<body>
+  
+  <div class="menu-niveis">
+    <div class="nivel" data-nivel="1">1</div>
+    <div class="nivel" data-nivel="2">2</div>
+    <div class="nivel" data-nivel="3">3</div>
+    <div class="nivel" data-nivel="4">4</div>
+    <div class="nivel" data-nivel="5">5</div>
+    <div class="nivel" data-nivel="6">6</div>
+    <div class="nivel" data-nivel="7">7</div>
+    <div class="nivel" data-nivel="8">8</div>
+    <div class="nivel" data-nivel="9">9</div>
+    <div class="nivel" data-nivel="10">10</div>
+    
+    <div class="nivel" data-nivel="11">11</div>
+    <div class="nivel" data-nivel="12">12</div>
+    <div class="nivel" data-nivel="13">13</div>
+    <div class="nivel" data-nivel="14">14</div>
+    <div class="nivel" data-nivel="15">15</div>
+    <div class="nivel" data-nivel="16">16</div>
+    <div class="nivel" data-nivel="17">17</div>
+    <div class="nivel" data-nivel="18">18</div>
+    <div class="nivel" data-nivel="19">19</div>
+    <div class="nivel" data-nivel="20">20</div>
+    
+    <div class="nivel" data-nivel="21">21</div>
+    <div class="nivel" data-nivel="22">22</div>
+    <div class="nivel" data-nivel="23">23</div>
+    <div class="nivel" data-nivel="24">24</div>
+    <div class="nivel" data-nivel="25">25</div>
+    <div class="nivel" data-nivel="26">26</div>
+    <div class="nivel" data-nivel="27">27</div>
+    <div class="nivel" data-nivel="28">28</div>
+    <div class="nivel" data-nivel="29">29</div>
+    <div class="nivel" data-nivel="30">30</div>
+  </div>
+  
+  <br><br><br><br>
+  
+  <div class="Menu">
+    
+    <a href="index.html">
+    <button class="BotaoMenu" type="submit">Voltar</button>
+    </a>
+    
+    <script>
+document.querySelectorAll(".nivel").forEach(div => {
+  const n = div.dataset.nivel;
+  const chave = "Q" + n;
+
+  if (localStorage.getItem(chave) === "ok") {
+    div.classList.add("liberado");
+    div.onclick = () => {
+      window.location.href = chave + ".html";
+    };
+  } else {
+    div.classList.add("bloqueado");
+  }
+});
+</script>
+
+</body>
+
+</html>

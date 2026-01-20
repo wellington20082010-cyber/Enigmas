@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2</title>
+  
+  <script>
+if (localStorage.getItem("Q2") !== "ok") {
+  window.location.href = "Nivel.html";
+}
+</script>
+
+</head>
+
+<body>
+  
+  <div class="imagem">
+        <img src="Q2.jpg"/>
+    </div>
+  
+  <div class="Menu">
+    
+    <a href="https://drive.google.com/file/d/1o5l2zmQh7bVG6R3R54-XsIuw_MpXpEpF/view?usp=drivesdk">
+    <button class="BotaoMenu" type="submit">Download</button>
+    </a>
+    
+    <input class="Codigo" type="text" id="respostaInput" placeholder="Digite o código:">
+    
+    <button class="BotaoMenu" onclick="verificar()">OK</button>
+    
+  </div>
+  
+  <script>
+  const questaoAtual = "Q2";
+  const proximaQuestao = "Q3";
+  
+  const dados = {
+    "Q0": ["azul", "Azul", "AZUL"],
+    "Q1": ["madrugada escura", "Madrugada escura", "Madrugada Escura", "MADRUGADA ESCURA"],
+    "Q2": ["a rua estava vazia demais", "A rua estava vazia demais", "A RUA ESTAVA VAZIA DEMAIS", "A Rua Estava Vazia Demais"],
+    "Q3": ["tentando chegar em casa", "Tentando chegar em casa", "Tentando Chegar Em Casa", "TENTANDO CHEGAR EM CASA"],
+    "Q4": ["dia chuvoso", "Dia chuvoso", "Dia Chuvoso", "DIA CHUVOSO"],
+    "Q5": ["esta facil demais", "Esta facil demais", "Esta Facil Demais", "ESTA FACIL DEMAIS"],
+    "Q6": ["Bordeaux", "BORDEAUX"],
+    "Q7": ["St Joseph's Catholic Crurch"],
+    "Q8": ["cafe bad", "Cafe bad", "Cafe Bad", "CAFE BAD"],
+    "Q9": ["anjos", "Anjos", "ANJOS"],
+    "Q10": ["133113495572"],
+    "Q11": ["407"],
+    "Q12": ["sinope", "Sinope", "SINOPE"],
+    "Q13": ["steve palchuk", "Steve palchuk", "Steve Palchuk", "STEVE PALCHUK"],
+    "Q14": ["9.440", "9440"],
+    "Q15": ["Ayrton Senna", "Ayrton senna", "AYRTON SENNA"],
+    "Q16": ["panda vermelho", "panda-vermelho", "Panda vermelho", "Panda-vermelho", "Panda Vermelho", "Panda-Vermelho", "PANDA VERMELHO", "PANDA-VERMELHO"],
+    "Q17": ["raposa", "Raposa", "RAPOSA"]
+  };
+  
+  const input = document.getElementById("respostaInput");
+
+function mostrarAlerta(mensagem) {
+  document.getElementById("alerta-texto").innerText = mensagem;
+  document.getElementById("alerta").classList.remove("escondido");
+}
+
+function fecharAlerta() {
+  document.getElementById("alerta").classList.add("escondido");
+}
+
+function verificar() {
+  const respostaUsuario = input.value.trim().toLowerCase();
+  const respostasValidas = dados[questaoAtual].map(r => r.toLowerCase());
+  
+  if (respostasValidas.includes(respostaUsuario)) {
+    localStorage.setItem(proximaQuestao, "ok");
+    window.location.href = proximaQuestao + ".html";
+  } else {
+    mostrarAlerta("Código errado");
+    input.value = "";
+  }
+}
+</script>
+  
+  <div id="alerta" class="alerta escondido">
+  <div class="alerta-box">
+    <p id="alerta-texto"></p>
+    <button onclick="fecharAlerta()">OK</button>
+  </div>
+</div>
+  
+</body>
+
+</html>
