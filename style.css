@@ -15,7 +15,7 @@ body{
 
 .Titulo{
   font-family: 'f', Times, serif;
-  font-size: 10vh;
+  font-size: 6vh;
   font-weight: normal;
   display: flex;
   justify-content: center;
